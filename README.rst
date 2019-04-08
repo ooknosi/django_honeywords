@@ -1,7 +1,6 @@
 =================
 Django Honeywords
 =================
-
 Django implementation of the `Honeywords Project`_ by Ari Juels and Ronald L. Rivest.
 
 .. _Honeywords Project: http://people.csail.mit.edu/rivest/honeywords/
@@ -30,14 +29,15 @@ Quick Start
         'honeywords',
     ]
 
-#) Create Honeywords table::
-
-    ./manage.py makemigrations honeywords
-    ./manage.py migrate
-
-#) Add ``HONEYCHECKER_URI = http(s)://<url/ip>:<port>`` into ``settings.py``::
-
-    HONEYCHECKER_URI = 'http://192.168.56.101:55555'
+#) Add ``honeywords.hashers.HoneywordHasher`` to top of ``PASSWORD_HASHERS`` in ``settings.py`` (or add ``PASSWORD_HASHERS`` if missing)::
+    
+    PASSWORD_HASHERS = [
+        'honeywords.hashers.HoneywordHasher',
+        'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+        'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+        'django.contrib.auth.hashers.Argon2PasswordHasher',
+        'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    ]
 
 #) Add ``honeywords.backends.HoneywordsBackend`` to the top of ``AUTHENTICATION_BACKENDS`` in ``settings.py`` (or add ``AUTHENTICATION_BACKENDS`` if missing)::
 
@@ -45,6 +45,15 @@ Quick Start
        'honeywords.backends.HoneywordsBackend',
        'django.contrib.auth.backends.ModelBackend',
        ]
+
+#) Add ``HONEYCHECKER_URI = http(s)://<url/ip>:<port>`` into ``settings.py``::
+
+    HONEYCHECKER_URI = 'http://192.168.56.101:55555'
+
+#) Create Honeywords table::
+
+    ./manage.py makemigrations honeywords
+    ./manage.py migrate
 
 #) Download `honeychecker.py`_ to the Honeychecker server.
 

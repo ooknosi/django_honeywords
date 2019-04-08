@@ -23,6 +23,7 @@ setup(
     long_description=README,
     keywords='django honeywords password login security',
     url='https://github.com/ooknosi/django_honeywords',
+    download_url='https://github.com/ooknosi/django_honeywords/archive/0.1.0b1.tar.gz',
     author='Edison KOO',
     #author_email='',
     install_requires=[

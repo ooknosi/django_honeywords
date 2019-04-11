@@ -2,8 +2,6 @@
 To Do
 =====
 
-* setup.py for pypi
-
 * Write unit tests
 
 * honeychecker.hashers.verify

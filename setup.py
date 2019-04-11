@@ -12,7 +12,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-honeywords',
-    version='0.1.0b1',
+    version='0.1.0b2',
     packages=find_packages('src', exclude=['config',]),
     package_dir={'':'src'},
     include_package_data=True,
@@ -23,7 +23,7 @@ setup(
     long_description=README,
     keywords='django honeywords password login security',
     url='https://github.com/ooknosi/django_honeywords',
-    download_url='https://github.com/ooknosi/django_honeywords/archive/0.1.0b1.tar.gz',
+    download_url='https://github.com/ooknosi/django_honeywords/archive/0.1.0b2.tar.gz',
     author='Edison KOO',
     #author_email='',
     install_requires=[

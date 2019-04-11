@@ -31,27 +31,6 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 """
 
-#! /usr/local/bin/python
-# gen.py
-# password generation program (intended for generating ``honeywords'')
-# Ronald L. Rivest and Ari Juels
-# 3/18/13
-#
-# Usage: python gen.py n f1 f2 ... fk
-#        where    n = number of passwords desired [optional; default = 19]
-#                 fi = file containing lists of passwords to be used as models, i = 1, 2, ..., k
-#                      (if no files given, short internal list used)
-#                      passwords separated by whitespace (could be one, or many, per line)
-#        The program outputs n passwords, one per line
-#
-# Example: assuming all password files are in subdirectory "passwords"
-#          python gen.py 20 passwords/*
-#
-# Should run OK with python 2.7 (including pypy) and python 3.3
-#
-# This version of the program does not implement any password-composition restrictions,
-# such as a minimum-length on passwords; this could be easily added.
-
 ##############################################################################
 #### PARAMETERS CONTROLLING PASSWORD GENERATION (aside from password files)
 
@@ -262,23 +241,8 @@ def generate_passwords( n, pw_list ):
         ans.append( pw )
     return ans
 
-#def main():
 def gen(password, n, filenames):
-    ## get number of passwords desired
-    #if len(sys.argv) > 1:
-    #    n = int(sys.argv[1])
-    #else:
-    #    n = 19
-    ## read password files
-    #filenames = sys.argv[2:]           # skip "gen.py" and n   
     pw_list = read_password_files(filenames)
-    # generate passwords
     new_passwords = generate_passwords(n,pw_list)
-    # shuffle their order
     random.shuffle(new_passwords)
-    # print if desired
-    printing_wanted = True
-    if printing_wanted:
-        for pw in new_passwords:
-            print (pw)
     return new_passwords

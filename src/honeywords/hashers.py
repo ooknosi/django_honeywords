@@ -71,8 +71,10 @@ class HoneywordHasher(PBKDF2PasswordHasher):
         # TODO implement honeywordtweak
         #for i in range(<bases+1>):
         #    sweetwords.extend(honeywordtweak.tweak(passwords[i], <tweaks>))
-        # TODO move into test suite
-        if self.DEBUG: sweetwords.extend(['test'])
+        # TODO move test password into test suite instead
+        if self.DEBUG:
+            print("WARNING: In DEBUG mode, 'test' is added as a honeyword.")
+            sweetwords.extend(['test'])
         shuffle(sweetwords)
         hashes = []
         for swd in sweetwords:
@@ -82,4 +84,3 @@ class HoneywordHasher(PBKDF2PasswordHasher):
         h = Sweetwords(salt=salt, sweetwords=dumps(hashes))
         h.save()
         return f"{self.algorithm}${iterations}${salt}${hashes[0]}"
-

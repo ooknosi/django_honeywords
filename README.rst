@@ -59,7 +59,7 @@ Quick Start
 
     wget -c https://raw.githubusercontent.com/ooknosi/django_honeywords/master/src/honeywords/honeychecker.py
 
-    .. _honeychecker.py: https://raw.githubusercontent.com/ooknosi/django_honeywords/master/src/honeywords/honeychecker.py
+   .. _honeychecker.py: https://raw.githubusercontent.com/ooknosi/django_honeywords/master/src/honeywords/honeychecker.py
 
 #) Edit the ``IP``, ``PORT`` and ``DATABASE`` settings in ``honeychecker.py``::
 
